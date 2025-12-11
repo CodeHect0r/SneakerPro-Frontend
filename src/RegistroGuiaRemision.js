@@ -183,23 +183,31 @@ const RegistroGuiaRemision = () => {
     }
   };
 
-  const verDetalle = async (guiaId) => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${API_URL}/api/guias/${guiaId}/detalle`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      setGuiaSeleccionada(response.data.guia);
-      setDetalles(response.data.detalles);
-    } catch (error) {
-      console.error('Error al cargar detalle:', error);
-      alert('Error al cargar el detalle de la guía');
-    } finally {
-      setLoading(false);
-    }
-  };
+ const verDetalle = async (guiaId) => {
+  // 🔥 LIMPIAR ESTADO ANTES DE CARGAR
+  setGuiaSeleccionada(null);
+  setDetalles([]);
+  setLoading(true);
+  
+  try {
+    const response = await axios.get(`${API_URL}/api/guias/${guiaId}/detalle`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    
+    // 📊 LOG PARA VERIFICAR QUÉ LLEGA DEL BACKEND
+    console.log('📦 Datos recibidos del backend:', response.data);
+    
+    setGuiaSeleccionada(response.data.guia);
+    setDetalles(response.data.detalles);
+  } catch (error) {
+    console.error('Error al cargar detalle:', error);
+    alert('Error al cargar el detalle de la guía');
+  } finally {
+    setLoading(false);
+  }
+};
 
   const formatearFecha = (fecha) => {
     return new Date(fecha).toLocaleDateString('es-PE', {
@@ -575,10 +583,10 @@ const RegistroGuiaRemision = () => {
                           <td>{detalle.marca}</td>
                           <td>{detalle.modelo}</td>
                           <td>{detalle.talla}</td>
-                          <td className="precio">S/ {detalle.costo_unitario?.toFixed(2) || '0.00'}</td>
-                          <td className="subtotal">
-                            S/ {((detalle.cantidad || 0) * (detalle.costo_unitario || 0)).toFixed(2)}
-                          </td>
+                          <td className="precio">S/ {parseFloat(detalle.costo_unitario || 0).toFixed(2)}</td>
+                         <td className="subtotal">
+  S/ {((parseFloat(detalle.cantidad) || 0) * (parseFloat(detalle.costo_unitario) || 0)).toFixed(2)}
+</td>
                           <td className="stock">{detalle.stock_actual || 0}</td>
                         </tr>
                       ))}
