@@ -1,0 +1,415 @@
+.analisis-ventas-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2em;
+  margin-bottom: 5px;
+  color: #1f2937;
+}
+
+.page-header p {
+  color: #6b7280;
+  font-size: 1em;
+}
+
+/* Métricas */
+.metricas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metrica-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.metrica-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.metrica-icon {
+  font-size: 2.5em;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.metrica-info h3 {
+  font-size: 0.9em;
+  color: #6b7280;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.metrica-valor {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.metrica-valor-small {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.metrica-detalle {
+  font-size: 0.85em;
+  color: #9ca3af;
+}
+
+/* Filtros */
+.filtros-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.filtros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filtro-grupo {
+  display: flex;
+  flex-direction: column;
+}
+
+.filtro-grupo label {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+.filtro-grupo input,
+.filtro-grupo select {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95em;
+}
+
+.filtro-grupo input:focus,
+.filtro-grupo select:focus {
+  outline: none;
+  border-color: #f59e0b;
+}
+
+.btn-limpiar-filtros {
+  padding: 10px 20px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-limpiar-filtros:hover {
+  background: #4b5563;
+}
+
+/* Tabla */
+.tabla-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tabla-section h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.tabla-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.numero-pedido {
+  font-weight: 600;
+  color: #f59e0b;
+}
+
+.cliente-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cliente-info small {
+  color: #6b7280;
+  font-size: 0.85em;
+}
+
+.total {
+  font-weight: 600;
+  color: #059669;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.acciones-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-accion {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: transform 0.2s;
+}
+
+.btn-accion:hover {
+  transform: scale(1.1);
+}
+
+.btn-accion.ver {
+  background: #dbeafe;
+}
+
+.btn-accion.descargar {
+  background: #fef3c7;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.btn-cerrar {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.btn-cerrar:hover {
+  background: #e5e7eb;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.detalle-section {
+  margin-bottom: 25px;
+}
+
+.detalle-section h3 {
+  margin-bottom: 15px;
+  color: #374151;
+  border-bottom: 2px solid #f59e0b;
+  padding-bottom: 8px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.info-grid div {
+  padding: 10px;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.tabla-productos-detalle {
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.totales {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.total-row.total-final {
+  border-top: 2px solid #e5e7eb;
+  margin-top: 10px;
+  padding-top: 12px;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #059669;
+}
+
+.descuento {
+  color: #ef4444;
+}
+
+.detalle-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-accion-modal {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-accion-modal:hover {
+  opacity: 0.8;
+}
+
+.btn-accion-modal.descargar {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.btn-accion-modal.reenviar {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.btn-accion-modal.regenerar {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.btn-accion-modal.cancelar {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.cambiar-estado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.cambiar-estado select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #9ca3af;
+  font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+  .metricas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filtros-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    width: 95%;
+  }
+}
